@@ -45,7 +45,7 @@ describe('Config', () => {
     const config = new Config();
 
     const expected = {
-      Name: 'base-hello-app',
+      Name: 'enterprise-bot-framework-app-starter',
       Version: '1.0.0',
       ApplicationInsightsKey: undefined,
       MicrosoftAppId: 'APP_ID',
