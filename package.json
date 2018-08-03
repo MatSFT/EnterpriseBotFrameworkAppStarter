@@ -1,11 +1,11 @@
 {
-  "name": "base-hello-app",
+  "name": "enterprise-bot-framework-app-starter",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MattSFT/BaseHelloApp.git"
+    "url": "https://github.com/MattSFT/EnterpriseBotFrameworkAppStarter.git"
   },
   "scripts": {
     "build": "tsc",
@@ -17,7 +17,7 @@
     "node": "8.11.1",
     "npm": "5.6.0"
   },
-  "author": "Microsoft Corporation",
+  "author": "Matt Stankiewicz",
   "license": "MIT",
   "dependencies": {
     "applicationinsights": "^1.0.3",
