@@ -4,4 +4,4 @@
 
 ## What is this?
 
-This is a very simple sample for building a bot that can work with BotFramework and Microsoft Teams specifically. Take a look at the config.ts file for possible configuration options.
+This is a very simple sample for building a bot that can work with BotFramework and Microsoft Teams specifically. Take a look at the [Config.ts](https://github.com/MattSFT/BaseHelloApp/blob/master/src/Config/Config.ts) file for possible configuration options and how they are pulled in by the app. You should be able to deploy this directly to an azure App Service if you configure the options in the environment first.
