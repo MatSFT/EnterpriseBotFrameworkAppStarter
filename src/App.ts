@@ -10,6 +10,9 @@ import { IDataStorage, FileStorage, MemoryStorage } from "./Repositories";
 import { Dialogs } from "./Dialogs";
 import { ArgumentNullException } from "./Errors";
 import { AddressInfo } from "net";
+import { HelloDialog } from "./Dialogs/HelloDialog";
+import { HelloService } from "./Services/HelloService";
+import { UserRepository } from "./Repositories/UserRepository";
 
 export class App {
   private _config: IConfig;
@@ -37,15 +40,16 @@ export class App {
       appPassword: this._config.MicrosoftAppPassword
     });
 
-    let botStorage: IDataStorage;
+    let userStorage: IDataStorage;
     if (this._config.DataStorageType === StorageType.File) {
-      botStorage = new FileStorage(this._logger, this._config.DataFilePath);
+      userStorage = new FileStorage(this._logger, this._config.DataFilePath);
     }
     else {
-      botStorage = new MemoryStorage(this._logger);
+      userStorage = new MemoryStorage(this._logger);
     }
 
-    const universalBot = Dialogs.register(chatConnector, this._logger, this._config);
+    const helloService = new HelloService(new UserRepository(userStorage));
+    const universalBot = Dialogs.register(chatConnector, this._logger, this._config, helloService);
 
     const app = Express();
     this._server = app.listen(this._config.ServerPort, () => {

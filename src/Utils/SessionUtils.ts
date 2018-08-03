@@ -1,7 +1,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license.
 import {Session} from "botbuilder";
-import {User} from "../Models";
 import {ArgumentNullException} from "../Errors";
 
 export class SessionUtils {
@@ -20,14 +19,5 @@ export class SessionUtils {
     }
 
     return teamId;
-  }
-
-  static extractSender(session: Session) : User {
-    if (!session) {
-      throw new ArgumentNullException("session");
-    }
-    return new User(
-      session.message.address.user.id,
-      session.message.address.user.name || "");
   }
 }

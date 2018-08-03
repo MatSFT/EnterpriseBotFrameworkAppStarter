@@ -4,17 +4,25 @@ import {ArgumentNullException} from "../Errors";
 
 export class User {
   readonly id: string;
-  readonly name: string;
+  hasBeenGreeted: boolean;
 
-  constructor(id: string, name: string) {
+  constructor(id: string, hasBeenGreeted: boolean = false) {
     if (!id) {
       throw new ArgumentNullException("id");
     }
-    if (!name) {
-      throw new ArgumentNullException("name");
-    }
 
     this.id = id;
-    this.name = name;
+    this.hasBeenGreeted = hasBeenGreeted;
+  }
+
+  toJSON(): any {
+    return {
+      id: this.id,
+      hasBeenGreeted: this.hasBeenGreeted
+    };
+  }
+
+  static fromJSON(json: any) : User {
+    return new User(json.id, json.hasBeenGreeted);
   }
 }

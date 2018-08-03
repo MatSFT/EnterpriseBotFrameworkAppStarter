@@ -1,7 +1,9 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license.
 
-export interface IDataStorage {
-  save(data: any) : Promise<void>;
-  load() : Promise<any>;
+import { User } from "../Models";
+
+export interface IUserRepository {
+  saveUser(user: User) : Promise<void>;
+  findUserById(userId: string) : Promise<User|null>;
 }

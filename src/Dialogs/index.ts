@@ -1,8 +1,8 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license.
-import { ChatConnector, UniversalBot, Session, IEvent, IMiddlewareMap } from "botbuilder";
-import {ArgumentNullException} from '../Errors'
-import {ILogger} from '../Logging';
+import { ChatConnector, UniversalBot, Session, IEvent, IMiddlewareMap, MemoryBotStorage } from "botbuilder";
+import { ArgumentNullException } from '../Errors'
+import { ILogger } from '../Logging';
 import { HelloDialog } from "./HelloDialog";
 import { IConfig } from "../Config";
 
@@ -71,7 +71,7 @@ class StripBotAtMentions implements IMiddlewareMap {
 export class Dialogs {
   private static HelloMatch = /^hello\s*$/i;
 
-  static register(connector: ChatConnector, logger: ILogger, config: IConfig) : UniversalBot {
+  static register(connector: ChatConnector, logger: ILogger, config: IConfig, helloService: IHelloService) : UniversalBot {
     if (!connector) {
       throw new ArgumentNullException("connector");
     }
@@ -92,9 +92,10 @@ export class Dialogs {
     bot.set('localizerSettings', {
       defaultLocale: config.DefaultLocale,
       botLocalePath: config.LocalePath
-    })
+    });
+    bot.set('storage', new MemoryBotStorage());
 
-    new HelloDialog(Dialogs.HelloMatch, logger).register("/hello", bot);
+    new HelloDialog(Dialogs.HelloMatch, logger, helloService).register("/hello", bot);
 
     logger.info('All dialogs registered');
     

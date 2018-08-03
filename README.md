@@ -13,3 +13,8 @@ It is setup to already have the basics of a production level app.
 2. There is a code coverage report being generated that maps the coverage to the Typescript code.
 3. There is an extensible logging framework with built in app insights trace publishing.
 4. Abstractions built so you just have to worry about writing the code that matters
+5. Easy localization support already set up.
+
+## Caveats
+
+The storage mechanism in the src/Storage directory is very hacky and not production level.

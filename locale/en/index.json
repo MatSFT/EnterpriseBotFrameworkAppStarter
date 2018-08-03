@@ -1,4 +1,5 @@
 {
   "unmatched_response" : "I support the following commands:<br/><b>hello</b> - I respond with 'hello'.",
-  "hello" : "Hello!"
+  "hello_first_time" : "Hello!",
+  "hello_again" : "Hello again friend!"
 }
