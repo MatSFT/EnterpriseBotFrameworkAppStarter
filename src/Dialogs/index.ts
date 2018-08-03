@@ -5,6 +5,7 @@ import { ArgumentNullException } from '../Errors'
 import { ILogger } from '../Logging';
 import { HelloDialog } from "./HelloDialog";
 import { IConfig } from "../Config";
+import { IHelloService } from "../Services";
 
 // Strip bot mentions from the message text
 class TenantFilterMiddleware implements IMiddlewareMap {

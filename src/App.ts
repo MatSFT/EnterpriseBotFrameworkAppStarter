@@ -3,14 +3,13 @@
 import * as Path from "path";
 import {Server} from "http";
 import * as Express from "express";
-import { UniversalBot, ChatConnector, IMiddlewareMap, IEvent, Session } from "botbuilder";
+import { ChatConnector } from "botbuilder";
 import { ConsoleLogger, ILogger, ApplicationInsightsLogger, CompoundLogger, NoLogger } from "./Logging";
 import { Config, IConfig, StorageType } from "./Config";
-import { IDataStorage, FileStorage, MemoryStorage } from "./Repositories";
+import { IDataStorage, FileStorage, MemoryStorage } from "./Storage";
 import { Dialogs } from "./Dialogs";
 import { ArgumentNullException } from "./Errors";
 import { AddressInfo } from "net";
-import { HelloDialog } from "./Dialogs/HelloDialog";
 import { HelloService } from "./Services/HelloService";
 import { UserRepository } from "./Repositories/UserRepository";
 

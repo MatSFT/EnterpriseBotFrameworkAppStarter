@@ -1,9 +1,10 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license.
-import {Session, Message, IDialogWaterfallStep} from "botbuilder";
-import {ILogger} from "../Logging";
+import { Session, Message, IDialogWaterfallStep } from "botbuilder";
+import { ILogger } from "../Logging";
 import { BaseDialog } from "./BaseDialog";
 import { ArgumentNullException } from "../Errors";
+import { IHelloService } from "../Services";
 
 export class HelloDialog extends BaseDialog {
   private _helloService: IHelloService;

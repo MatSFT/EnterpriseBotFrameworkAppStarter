@@ -4,6 +4,7 @@
 import { IUserRepository } from "../Repositories/Interfaces";
 import { ArgumentNullException } from "../Errors";
 import { User } from "../Models";
+import { IHelloService } from "./Interfaces";
 
 export class HelloService implements IHelloService {
   private _userRepository: IUserRepository;
